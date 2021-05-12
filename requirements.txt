@@ -9,3 +9,5 @@ timm==0.4.5
 opencv_python_headless
 albumentations
 imagesize
+flask
+gunicorn

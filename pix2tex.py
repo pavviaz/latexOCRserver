@@ -61,7 +61,7 @@ def initialize(arguments):
 
 def call_model(args, model, image_resizer, tokenizer):
     encoder, decoder = model.encoder, model.decoder
-    img = Image.open("test.png")
+    img = Image.open("temp.png")
     img = minmax_size(pad(img), args.max_dimensions)
     if image_resizer is not None and not args.no_resize:
         with torch.no_grad():
@@ -87,8 +87,7 @@ def call_model(args, model, image_resizer, tokenizer):
         dec = decoder.generate(torch.LongTensor([args.bos_token])[:, None].to(device), args.max_seq_len,
                                eos_token=args.eos_token, context=encoded.detach(), temperature=args.temperature)
         pred = post_process(token2str(dec, tokenizer)[0])
-    print(pred, '\n')
-
+    return pred
 
 
 def main():
@@ -104,9 +103,8 @@ def main():
     args = parser.parse_args()
 
     args, *objs = initialize(args)
-    call_model(args, *objs)
+    return call_model(args, *objs)
 
 
-main()
 
 
