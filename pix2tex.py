@@ -1,11 +1,11 @@
-import sys
-import subprocess
-import pkg_resources
-required = {"x-transformers"}
-installed = {pkg.key for pkg in pkg_resources.working_set}
-missing = required - installed
-if missing:
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install',*missing])
+#import sys
+#import subprocess
+#import pkg_resources
+#required = {"x-transformers"}
+#installed = {pkg.key for pkg in pkg_resources.working_set}
+#missing = required - installed
+#if missing:
+#    subprocess.check_call([sys.executable, '-m', 'pip', 'install',*missing])
 
 
 from dataset.dataset import test_transform

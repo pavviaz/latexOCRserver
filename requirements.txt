@@ -9,4 +9,5 @@ opencv_python_headless
 albumentations
 imagesize
 Flask==1.0.2
-uWSGI
+uWSGI==2.0.18
+gunicorn
