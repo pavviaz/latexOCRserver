@@ -8,5 +8,5 @@ timm==0.4.5
 opencv_python_headless
 albumentations
 imagesize
-flask
-gunicorn
+Flask==1.0.2
+uWSGI
